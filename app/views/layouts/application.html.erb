@@ -1,0 +1,52 @@
+<% @title ||= "Props for Photos"%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title><%= @title %> | Photo Props</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Props for photos.">
+  
+  <meta property="og:title" content="<%= @title %> | Photo Props" />
+  <meta property="og:site_name" content="Photo Props" />
+  <meta property="og:description" content="Props for photos." />
+  
+  <%= stylesheet_link_tag    "application" %>
+  <%= csrf_meta_tags %>
+  
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Photo Props</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <%= notice_msg(flash[:notice]) if flash[:notice] %>
+    <%= alert_msg(flash[:alert]) if flash[:alert] %>
+  
+    <%= yield %>
+
+    <hr>
+    <footer>
+      <p>
+        &copy; 2012 &middot; Photo Props
+      </p>
+    </footer>
+
+  </div>
+
+<%= javascript_include_tag "application" %>
+
+</body>
+</html>

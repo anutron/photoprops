@@ -1,0 +1,28 @@
+<h1>Photos</h1>
+
+<p><%= link_to "New Photo", new_photo_path %></p>
+
+<% @photos.each do |p| %>
+  <div class="row">
+    <div class="span12">
+      <h2><%= p.title %></h2>
+      <% p.props.each do |prop| %>
+        <p><%= prop.title %> &middot; <%= link_to "X", photo_prop_path(p, prop), :method => :delete %></p>
+      <% end %>
+      <% prop = Prop.new %>
+      <%= form_for [p, Prop.new] do |f| %>
+        <fieldset>
+          <%= control_group(prop, :title) %>
+            <%= f.text_field :title, :class => "span4", :placeholder => "Add a prop." %>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn" data-loading-text="Adding ..." autocomplete="off">Add</button>
+      <% end %>
+      <p>
+        <%= link_to "edit", edit_photo_path(p) %> &middot;
+        <%= link_to "delete", photo_path(p), :method => :delete %>
+      </p>
+      <hr />
+    </div>
+  </div>
+<% end %>

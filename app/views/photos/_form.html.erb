@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="span12">
+    <%= form_for @photo do |f| %>
+      <% if @photo.errors.any? %>
+        <div class="alert alert-error">
+          <h3><%= pluralize(@photo.errors.count, "error") %> was found:</h3>
+
+          <ul>
+          <% @photo.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <fieldset>
+        <%= control_group(@photo, :title) %>
+          <%= f.text_field :title, :class => "span12", :placeholder => "Enter a title." %>
+        </div>
+      </fieldset>
+      <button type="submit" class="btn btn-primary btn-large pull-right" data-loading-text="Saving ..." autocomplete="off">Save</button>
+    <% end %>
+  </div>
+</div>
