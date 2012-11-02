@@ -5,7 +5,7 @@ class PropsController < ApplicationController
     if @prop.save
       redirect_to photos_path, notice: "The prop was added."
     else
-      render_to photos_path, notice: "Could not add the prop."
+      redirect_to photos_path, notice: "Could not add the prop."
     end
   end
   

@@ -5,7 +5,7 @@
 <% @photos.each do |p| %>
   <div class="row">
     <div class="span12">
-      <h2><%= p.title %></h2>
+      <%= image_tag p.img.url(:medium) %>
       <% p.props.each do |prop| %>
         <p><%= prop.title %> &middot; <%= link_to "X", photo_prop_path(p, prop), :method => :delete %></p>
       <% end %>
